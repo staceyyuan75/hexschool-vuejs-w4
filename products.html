@@ -157,9 +157,6 @@
                     <div class="mb-2" v-for="(img, index) in product.imagesUrl" :key="index">
                       <div class="card bg-light">
                         <img :src="img" class="card-img-top" alt="">
-                        <template v-if="preview">
-                          <img :src="preview" class="card-img-top"/>
-                        </template>
                         <div class="card-body">
                           <div class="mb-2">
                             <label for="imagesUrl" class="form-label">圖片 {{ index + 1}}</label>
