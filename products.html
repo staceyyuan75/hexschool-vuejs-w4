@@ -78,7 +78,6 @@
     <!-- Modal -->
     <product-component ref="product" :product="tempProduct" :is-new="isNew" :is-valid="isValid" @update="getProducts" @update-product="updateProduct"></product-component>
     <del-product-component ref="delProduct" :item="tempProduct" @update="getProducts" @delete-product="delProduct"></del-product-component>
-    <upload-photo-component ref="uploadPhoto"></upload-photo-component>
     <!-- Modal -->
   </div>
 
@@ -165,12 +164,8 @@
                           </div>
                           <div>
                             <a href="#" class="btn btn-outline-danger" @click="delImages(index)">刪除</a>
-                            <!-- <a href="#" class="btn btn-outline-dark mx-2" @click="delImages(index)">上傳圖片</a> -->
                              <label :for="'formFile' + index" class="btn btn-outline-dark mx-2">選擇圖片上傳</label>
                             <input accept="image/*" class="d-none" type="file" @change="uploadImage" ref="files" :id="'formFile' + index" />
-                            <!-- <template v-if="isUpload">
-                              <a href="#" class="btn btn-outline-primary mx-2" @click="delImages(index)">確定上傳</a>
-                            </template> -->
                           </div>
                         </div>
                       </div>
@@ -302,29 +297,6 @@
         </div>
       </div>
     </script>
-
-  <script type="text/x-template" id="uploadPhotoModal">
-    <div class="modal fade" id="uploadPhotoModal" tabindex="-1" aria-labelledby="uploadPhotoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="uploadPhotoModalLabel">上傳圖片</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="/api/staceyyuan-hexschool/admin/upload" enctype="multipart/form-data"  method="post">
-          <input type="file" name="file-to-upload">
-          <input type="submit" value="Upload">
-        </form>  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-  </script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'
     integrity='sha512-Xk3wWei2TGrsh9kDSBKUMIjw/86sLUvhtnv9f7fOuIwhhiUTKz8szkWkzHthrM5Bb3Bu9idSzkxOrkzhcneuiw=='
